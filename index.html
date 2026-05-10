@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>TriZ. — Tatuadora & Artista Visual</title>
+  <meta name="description" content="TriZ. — Tatuadora e artista visual independente. Agendamentos abertos."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#f2c230",
+            "primary-container": "#f2c230",
+            "on-primary": "#3e2e00",
+            "on-primary-container": "#3e2e00",
+            "background": "#080c0a",
+            "surface": "#131313",
+            "surface-container": "#20201f",
+            "surface-container-low": "#1c1b1b",
+            "surface-container-high": "#2a2a2a",
+            "surface-container-highest": "#353535",
+            "surface-container-lowest": "#0e0e0e",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#d1c5ad",
+            "secondary": "#cdc6b6",
+            "secondary-fixed": "#eae2d2",
+            "outline-variant": "#4e4634",
+          },
+          spacing: {
+            "margin-mobile": "20px",
+            "section-gap": "120px",
+            "gutter": "24px",
+            "container-max": "1280px",
+            "margin-desktop": "64px",
+          },
+          fontFamily: {
+            "label-caps": ["DM Sans"],
+            "display-lg": ["EB Garamond"],
+            "headline-lg": ["EB Garamond"],
+            "headline-md": ["EB Garamond"],
+            "headline-sm": ["EB Garamond"],
+            "body-lg": ["DM Sans"],
+            "body-md": ["DM Sans"],
+          },
+          fontSize: {
+            "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.2em", fontWeight: "700" }],
+            "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400" }],
+            "headline-lg": ["48px", { lineHeight: "1.2", fontWeight: "400" }],
+            "headline-md": ["32px", { lineHeight: "1.2", fontWeight: "400" }],
+            "headline-sm": ["24px", { lineHeight: "1.3", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "1.6", letterSpacing: "0.01em", fontWeight: "400" }],
+            "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-background text-on-surface">
+
+  <!-- Grain overlay -->
+  <div class="grain-overlay"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/30">
+    <div class="flex justify-between items-center px-6 md:px-margin-desktop py-4 max-w-container-max mx-auto">
+      <a href="#hero" class="font-headline-md text-headline-md text-primary tracking-tighter">TriZ.</a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex gap-10">
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all duration-300" href="#sobre">Sobre</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all duration-300" href="#galeria">Galeria</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all duration-300" href="#contato">Contato</a>
+      </div>
+
+      <!-- CTA Desktop -->
+      <a href="https://instagram.com/trizmedeiros" target="_blank" rel="noopener noreferrer"
+        class="hidden md:inline-block font-label-caps text-label-caps bg-primary-container text-on-primary-container px-6 py-3 transition-all duration-500 hover:drop-shadow-[0_0_15px_rgba(242,194,48,0.4)]">
+        Book Session
+      </a>
+
+      <!-- Hamburger mobile -->
+      <button id="menu-btn" class="md:hidden text-primary" aria-label="Abrir menu">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-background flex-col items-center justify-center gap-10 hidden">
+    <button id="menu-close" class="absolute top-5 right-6 text-primary" aria-label="Fechar menu">
+      <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+    <a class="font-headline-md text-headline-md text-on-surface hover:text-primary transition-colors" href="#sobre" onclick="closeMobileMenu()">Sobre</a>
+    <a class="font-headline-md text-headline-md text-on-surface hover:text-primary transition-colors" href="#galeria" onclick="closeMobileMenu()">Galeria</a>
+    <a class="font-headline-md text-headline-md text-on-surface hover:text-primary transition-colors" href="#contato" onclick="closeMobileMenu()">Contato</a>
+    <a href="https://instagram.com/trizmedeiros" target="_blank" rel="noopener noreferrer"
+      class="font-label-caps text-label-caps border border-primary text-primary px-10 py-4 hover:bg-primary hover:text-on-primary transition-all duration-300">
+      ME CHAMA NO INSTAGRAM
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <header id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 md:px-margin-desktop bg-background">
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px]"></div>
+    </div>
+    <div class="z-10 flex flex-col items-center fade-in">
+      <h1 class="font-display-lg text-[80px] md:text-[120px] text-primary italic leading-none mb-6 golden-glow-heavy">
+        TriZ.
+      </h1>
+      <p class="font-body-lg text-body-lg text-secondary-fixed max-w-[600px] italic mb-12 opacity-80">
+        Agendamentos abertos. Vem tatuar.
+      </p>
+      <a href="https://instagram.com/trizmedeiros" target="_blank" rel="noopener noreferrer"
+        class="font-label-caps text-label-caps bg-primary-container text-on-primary-container px-10 py-5 transition-all duration-500 hover:scale-105 hover:drop-shadow-[0_0_20px_rgba(242,194,48,0.5)]">
+        ME CHAMA NO INSTAGRAM
+      </a>
+    </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
+      <span class="material-symbols-outlined text-primary">expand_more</span>
+    </div>
+  </header>
+
+  <!-- Sobre -->
+  <section id="sobre" class="py-section-gap px-6 md:px-margin-desktop bg-[#1a1a1a] border-y border-outline-variant/20">
+    <div class="max-w-container-max mx-auto grid md:grid-cols-12 gap-gutter items-center">
+      <div class="md:col-span-6">
+        <h2 class="font-headline-lg text-headline-lg text-primary italic mb-8">O Traço.</h2>
+        <div class="font-body-lg text-body-lg text-on-surface leading-relaxed flex flex-col gap-6 border-l-2 border-primary pl-6">
+          <p>
+            Sou a Beatriz, tatuadora e artista visual independente. Depois de um tempo longe das agulhas, voltei com mais vontade do que nunca de criar coisas que ficam para sempre.
+          </p>
+          <p>
+            Não tenho estúdio fixo — tenho movimento. Viajo, observo, desenho. Meu trabalho vem de tudo isso: da natureza, da música, das histórias que as pessoas carregam. Cada tattoo é uma conversa.
+          </p>
+        </div>
+        <div class="mt-12 flex gap-8">
+          <div>
+            <div class="font-label-caps text-label-caps text-primary mb-2">LOCALIZAÇÃO</div>
+            <div class="font-body-md text-secondary">São Paulo, BR</div>
+          </div>
+          <div>
+            <div class="font-label-caps text-label-caps text-primary mb-2">CONTATO</div>
+            <div class="font-body-md text-secondary">Instagram</div>
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-5 md:col-start-8">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="assets/images/artista.png" alt="Beatriz Medeiros — TriZ., tatuadora e artista visual" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria -->
+  <section id="galeria" class="py-section-gap px-6 md:px-margin-desktop bg-background">
+    <div class="max-w-container-max mx-auto">
+      <div class="mb-16 flex justify-between items-end">
+        <div>
+          <h2 class="font-label-caps text-label-caps text-primary mb-4">TRABALHOS</h2>
+          <h3 class="font-display-lg text-[48px] md:text-display-lg italic">Galeria</h3>
+        </div>
+        <div class="hidden md:block font-body-md text-secondary max-w-[300px] text-right opacity-80">
+          Fragmentos de histórias gravadas em tinta e pele.
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+
+        <!-- Tigre — destaque grande -->
+        <div class="md:col-span-8 gallery-item relative group aspect-video overflow-hidden bg-surface-container-high">
+          <img src="assets/images/portfolio/tigre.png" alt="Tatuagem realista de tigre na mão" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+          <div class="overlay absolute inset-0 transition-all duration-500 flex items-end p-6 opacity-0 group-hover:opacity-100">
+            <span class="font-label-caps text-label-caps text-primary border-b border-primary pb-1">Tigre</span>
+          </div>
+        </div>
+
+        <!-- Flores -->
+        <div class="md:col-span-4 gallery-item relative group aspect-video overflow-hidden bg-surface-container-high">
+          <img src="assets/images/portfolio/flores.png" alt="Tatuagem de flores no pulso" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+          <div class="overlay absolute inset-0 transition-all duration-500 flex items-end p-6 opacity-0 group-hover:opacity-100">
+            <span class="font-label-caps text-label-caps text-primary border-b border-primary pb-1">Flores</span>
+          </div>
+        </div>
+
+        <!-- Serotonina -->
+        <div class="md:col-span-4 gallery-item relative group aspect-[3/4] overflow-hidden bg-surface-container-high">
+          <img src="assets/images/portfolio/serotonina.png" alt="Tatuagem da molécula de serotonina" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+          <div class="overlay absolute inset-0 transition-all duration-500 flex items-end p-6 opacity-0 group-hover:opacity-100">
+            <span class="font-label-caps text-label-caps text-primary border-b border-primary pb-1">Serotonina</span>
+          </div>
+        </div>
+
+        <!-- Fases da lua -->
+        <div class="md:col-span-4 gallery-item relative group aspect-[3/4] overflow-hidden bg-surface-container-high">
+          <img src="assets/images/portfolio/fases-lua.png" alt="Tatuagem de fases da lua com frase" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+          <div class="overlay absolute inset-0 transition-all duration-500 flex items-end p-6 opacity-0 group-hover:opacity-100">
+            <span class="font-label-caps text-label-caps text-primary border-b border-primary pb-1">Fases da Lua</span>
+          </div>
+        </div>
+
+        <!-- Escrita Mãe -->
+        <div class="md:col-span-4 gallery-item relative group aspect-[3/4] overflow-hidden bg-surface-container-high">
+          <img src="assets/images/portfolio/escrita-mae.png" alt="Tatuagem de escrita cursiva com poema" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+          <div class="overlay absolute inset-0 transition-all duration-500 flex items-end p-6 opacity-0 group-hover:opacity-100">
+            <span class="font-label-caps text-label-caps text-primary border-b border-primary pb-1">Escrita</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="py-section-gap px-6 md:px-margin-desktop bg-[#2e2e2e]">
+    <div class="max-w-container-max mx-auto text-center">
+      <h2 class="font-display-lg text-[48px] md:text-[80px] text-primary italic mb-12 golden-glow">
+        Vamos criar algo juntos.
+      </h2>
+      <p class="font-body-lg text-body-lg text-secondary-fixed max-w-[700px] mx-auto mb-16 opacity-80">
+        Agendamentos abertos. Me manda uma mensagem no Instagram e a gente conversa sobre o seu projeto.
+      </p>
+      <a href="https://instagram.com/trizmedeiros" target="_blank" rel="noopener noreferrer"
+        class="inline-block border-2 border-primary text-primary font-label-caps text-label-caps px-12 py-6 hover:bg-primary hover:text-on-primary transition-all duration-500 golden-glow">
+        ME CHAMA NO INSTAGRAM
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="w-full py-16 bg-surface-container-lowest border-t border-outline-variant/20">
+    <div class="flex flex-col md:flex-row justify-between items-center px-6 md:px-margin-desktop gap-gutter max-w-container-max mx-auto">
+      <div class="font-headline-sm text-headline-sm text-on-surface">TriZ.</div>
+      <div class="font-label-caps text-label-caps text-secondary opacity-80">
+        © 2026 TriZ. Todos os direitos reservados.
+      </div>
+      <div class="flex gap-8">
+        <a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors"
+          href="https://instagram.com/trizmedeiros" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors"
+          href="https://www.behance.net/beatrizmoraes17" target="_blank" rel="noopener noreferrer">Behance</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
